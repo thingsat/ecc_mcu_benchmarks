@@ -28,7 +28,9 @@
 #include "random.h"
 #include "xtimer.h"
 
-static uint8_t message[] = "0123456789abcdef";
+#define MSG_SIZE	1024
+
+static uint8_t message[MSG_SIZE] = "0123456789abcdef";
 
 static uint8_t sign_sk[EDSIGN_SECRET_KEY_SIZE];
 static uint8_t sign_pk[EDSIGN_PUBLIC_KEY_SIZE];
@@ -67,7 +69,6 @@ static uint8_t pub[EDSIGN_PUBLIC_KEY_SIZE] = {
 
 // Online Generate/Sign/Verify https://cyphr.me/ed25519_applet/ed.html
 
-
 // https://cryptography.io/en/latest/hazmat/primitives/asymmetric/ed25519/
 
 /*
@@ -88,9 +89,7 @@ static uint8_t priv2[EDSIGN_SECRET_KEY_SIZE] = {
 		0xC6, 0xC2, 0x3E, 0xF7, 0x8C, 0xBB, 0x7A, 0x8A
 };
 
-
 static uint8_t pub_from_priv[EDSIGN_PUBLIC_KEY_SIZE];
-
 
 // echo $HEXSTR  | xxd -r -p | xxd -i -c 8
 // DD82B72B362625A7C9930577E23170207E66B16277D720D053721623699A37BC
@@ -126,7 +125,6 @@ static uint8_t pub4[EDSIGN_PUBLIC_KEY_SIZE] = {
 		  0x91, 0x63, 0xf7, 0xc5, 0x38, 0x62, 0x5a, 0x19
 };
 
-
 static void test_c25519_signverify(void)
 {
 	printf("%s\n",__FUNCTION__);
@@ -156,8 +154,6 @@ static void test_c25519_verifynegative(void)
     res = edsign_verify(signature, sign_pk, message, sizeof(message));
     TEST_ASSERT_EQUAL_INT(0, res);
 }
-
-
 
 static void test_c25519_signverify_1(void)
 {
@@ -235,7 +231,6 @@ static void test_c25519_signverify_4(void)
 #define BENCH_SIZE 10U
 #endif
 
-
 static void _test_c25519_signverify_bench(uint8_t* message, size_t message_len)
 {
 	printf("%s\n",__FUNCTION__);
@@ -255,7 +250,6 @@ static void _test_c25519_signverify_bench(uint8_t* message, size_t message_len)
 	    edsign_sign(signature, pub_from_priv, priv4, message, message_len);
 	}
     stop = xtimer_now_usec();
-
 	printf("Sign: %u calls for %u bytes in %lu usec (%f usec per call)\n", BENCH_SIZE, message_len, stop-start, (stop-start)*1.0/BENCH_SIZE);
 
 	start = xtimer_now_usec();
@@ -264,23 +258,16 @@ static void _test_c25519_signverify_bench(uint8_t* message, size_t message_len)
 	    res = edsign_verify(signature, pub_from_priv, message, message_len);
 	}
     stop = xtimer_now_usec();
-
-	printf("Verify: %u calls for %u bytes in %lu usec (%f usec per call)\n", BENCH_SIZE, message_len, stop-start, (stop-start)*1.0/BENCH_SIZE);
-
-    /* Verifying... */
-    res = edsign_verify(signature, pub_from_priv, message, sizeof(message));
     TEST_ASSERT(res);
+    printf("Verify: %u calls for %u bytes in %lu usec (%f usec per call)\n", BENCH_SIZE, message_len, stop-start, (stop-start)*1.0/BENCH_SIZE);
 }
 
-#define MSG_SIZE	1024
-
+//use static variable message
 static void test_c25519_signverify_bench(void)
 {
 	printf("%s\n",__FUNCTION__);
-
-	size_t i=0;
-	uint8_t message[MSG_SIZE];
-	for(i=0;i<MSG_SIZE;i++){
+	size_t i = 0;
+	for(i = 0; i < MSG_SIZE; i++){
 		message[i] = (uint8_t)(i & 0xFF);
 	}
 
