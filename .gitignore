@@ -1,3 +1,7 @@
+# RIOT
+bin/
+
+
 # Prerequisites
 *.d
 
