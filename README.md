@@ -10,13 +10,13 @@ This benchmarks suite measures the performance of various implementations of ECC
 
 | Name | Private Key Size | Public Key Size | Signature Size |
 |------|------------------|-----------------|----------------|
-| secp112r1 | 14 bytes | 28 bytes | 28 bytes |
-| secp160r1 | 20 bytes | 40 bytes | 40 bytes |
-| secp192r1 | 24 bytes | 48 bytes | 48 bytes |
-| secp224r1 | 28 bytes | 56 bytes | 56 bytes |
-| secp256r1 | 32 bytes | 64 bytes | 64 bytes |
-| secp256k1 | 32 bytes | 64 bytes | 64 bytes |
-| ed25519   | 32 bytes | 64 bytes | 64 bytes |
+| [secp112r1](https://neuromancer.sk/std/secg/secp112r1) | 14 bytes | 28 bytes | 28 bytes |
+| [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | 20 bytes | 40 bytes | 40 bytes |
+| [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | 24 bytes | 48 bytes | 48 bytes |
+| [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | 28 bytes | 56 bytes | 56 bytes |
+| [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | 32 bytes | 64 bytes | 64 bytes |
+| [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | 32 bytes | 64 bytes | 64 bytes |
+| [ed25519](https://neuromancer.sk/std/other/Ed25519)    | 32 bytes | 64 bytes | 64 bytes |
 
 See https://neuromancer.sk/std/
 
