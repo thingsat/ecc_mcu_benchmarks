@@ -6,7 +6,7 @@ Status : Draft
 
 ## Motivations
 
-[c25519](https://api.riot-os.org/group__pkg__c25519.html) is the default RIOT package used for verifying [SUIT manifests](https://api.riot-os.org/group__sys__suit.html) for FUOTS, for signing and verifing [XBeacons](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/cubesat_mission/messages/lorawan_xbeacon.h) in the [Thingsat cubesat mission](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/tree/master/cubesat_mission).
+[c25519](https://api.riot-os.org/group__pkg__c25519.html) is the default RIOT package used for verifying [SUIT manifests](https://api.riot-os.org/group__sys__suit.html) for FUOTS ([Firmware Update Over The Space](https://github.com/thingsat/Cubedate)), for signing and verifying [XBeacons](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/cubesat_mission/messages/lorawan_xbeacon.h) in the [Thingsat cubesat mission](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/tree/master/cubesat_mission).
 
 This benchmarks suite measures the performance of various implementations of ECC algorithms for signing and verifying on various MCU boards. 
 
@@ -65,7 +65,7 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 * Signing and verifying time in micro-seconds per call
 
 | Board | Algo | Implementation | Message size | Signing | Verifying |
-|-------|-----|----------------|------|----------------|--------------|---------|----------|
+|-------|------|----------------|--------------|---------|-----------|
 | Nucleo F466RE |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 298718 | 692123 |
 | Nucleo F466RE |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 298720 | 692124 |
 | Nucleo F466RE |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
