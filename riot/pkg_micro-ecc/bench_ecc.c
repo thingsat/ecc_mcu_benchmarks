@@ -7,6 +7,11 @@
 #include "xtimer.h"
 
 int bench_ecc(void) {
+
+
+	printf("You are running RIOT on a(n) %s board.\n", RIOT_BOARD);
+	printf("This board features a(n) %s MCU.\n", RIOT_MCU);
+
     int i, c;
     uint8_t private[32] = {0};
     uint8_t public[64] = {0};
@@ -16,18 +21,23 @@ int bench_ecc(void) {
     const struct uECC_Curve_t * curves[5];
     int num_curves = 0;
 #if uECC_SUPPORTS_secp160r1
+	printf("Curve #%d : uECC_secp160r1\n", num_curves);
     curves[num_curves++] = uECC_secp160r1();
 #endif
 #if uECC_SUPPORTS_secp192r1
+	printf("Curve #%d : uECC_secp192r1\n", num_curves);
     curves[num_curves++] = uECC_secp192r1();
 #endif
 #if uECC_SUPPORTS_secp224r1
+	printf("Curve #%d : uECC_secp224r1\n", num_curves);
     curves[num_curves++] = uECC_secp224r1();
 #endif
 #if uECC_SUPPORTS_secp256r1
+	printf("Curve #%d : uECC_secp256r1\n", num_curves);
     curves[num_curves++] = uECC_secp256r1();
 #endif
 #if uECC_SUPPORTS_secp256k1
+	printf("Curve #%d : uECC_secp256k1\n", num_curves);
     curves[num_curves++] = uECC_secp256k1();
 #endif
 
