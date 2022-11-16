@@ -1,5 +1,9 @@
 # Elliptic Curve Cryptography (ECC) benchmarks for MCU
 
+Authors: Didier Donsez, Aymeric Brochier, Olivier Alphand.
+
+Status : Draft
+
 ## Motivations
 
 [c25519](https://api.riot-os.org/group__pkg__c25519.html) is the default RIOT package used for verifying [SUIT manifests](https://api.riot-os.org/group__sys__suit.html) for FUOTS, for signing and verifing [XBeacons](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/cubesat_mission/messages/lorawan_xbeacon.h) in the [Thingsat cubesat mission](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/tree/master/cubesat_mission).
@@ -27,45 +31,58 @@ Security equivalence can be found in Kerry Maletsky, RSA vs. ECC Comparison for 
 
 ## Boards
 
-| Board | MCU | Clock and DMIPS | RAM | FlashRAM | Support |
+| Board | MCU | Frequency and DMIPS | RAM | FlashRAM | Support |
 |-------|-----|-----------------|-----|----------|---------|
+| [Thingsat](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/cubesat_mission/README.md#board) | [STM32F405RG](https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html) (Cortex M4) | 180 MHz, 210 DMIPS | 192 Kbytes | 1024  Kbytes | RIOT, FreeRTOS, STM32CubeMX |
 | Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS |  |   | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX  |
-| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS |   |  | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
+| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS |  |  | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
+
+* DMIPS for Dhrystone 2.1 on STM32 MCU
 
 ### Supported by MBed
 
 ## Available implementations
 
-### RIOT OS
+### Implementations available in RIOT OS
 
-* c25519 on RIOT OS https://www.dlbeer.co.nz/oss/c25519.html
-* Micro ECC (uECC_secp160r1) on RIOT OS : https://github.com/kmackay/micro-ecc/blob/master/test/test_ecdsa.c
+Implementations are available as packages in [RIOT/pkg directory](https://github.com/RIOT-OS/RIOT/tree/master/pkg).
+* [c25519](https://api.riot-os.org/group__pkg__c25519.html) on RIOT OS https://www.dlbeer.co.nz/oss/c25519.html
+* [micro-ecc](https://doc.riot-os.org/group__pkg__micro__ecc.html) (uECC_secp160r1) on RIOT OS : https://github.com/kmackay/micro-ecc/blob/master/test/test_ecdsa.c
+* monocypher https://monocypher.org/manual 
+* qdsa https://www.cs.ru.nl/~jrenes  
+* wolfcrypt https://github.com/wolfSSL/wolfssl
 
 ### MBed
 
+
+### Arduino
+
+Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC, MIRACL, RELIC
+
+
 ## Results
 
-| Board | MCU | Clock and DMIPS | Algo | Implementation | Message size | Signing | Verifing |
-|-------|-----|----------------|------|----------------|--------------|---------|----------|
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 298718 | 692123 |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 298720 | 692124 |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 300692 | 693110 |
-| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 1284209 | 2935644 |
-| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 1284219 | 2935649 |
-| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 1284905 | 2935990 |
-| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 1289673 | 2938374 |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 16 | ?? | ?? |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 32 | ?? | ?? |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 128 | ?? | ?? |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | ED25519 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 1024 | ?? | ?? |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 16 | ?? | ?? |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 32 | ?? | ?? |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 128 | ?? | ?? |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS | secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 1024 | ?? | ?? |
+* Signing and verifying time in micro-seconds per call
 
-* Signing and verifing time in micro-seconds per call
-* DMIPS for Dhrystone 2.1 on STM32 MCU
+| Board | Algo | Implementation | Message size | Signing | Verifying |
+|-------|-----|----------------|------|----------------|--------------|---------|----------|
+| Nucleo F466RE |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 298718 | 692123 |
+| Nucleo F466RE |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 298720 | 692124 |
+| Nucleo F466RE |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
+| Nucleo F466RE |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 300692 | 693110 |
+| Nucleo F103RB |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 1284209 | 2935644 |
+| Nucleo F103RB |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 1284219 | 2935649 |
+| Nucleo F103RB |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 1284905 | 2935990 |
+| Nucleo F103RB |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 1289673 | 2938374 |
+| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 16 | ?? | ?? |
+| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 32 | ?? | ?? |
+| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 128 | ?? | ?? |
+| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 1024 | ?? | ?? |
+| Nucleo F466RE |  secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 16 | ?? | ?? |
+| Nucleo F466RE |  secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 32 | ?? | ?? |
+| Nucleo F466RE |  secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 128 | ?? | ?? |
+| Nucleo F466RE |  secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 1024 | ?? | ?? |
+
 
 ## Running the benchmarks suite
 
@@ -104,6 +121,9 @@ gmake BOARD=esp32-wroom-32 -j 16
 
 TBD
 
+### On Arduino
+
+TBD
 
 ## Annexes
 
