@@ -1,4 +1,4 @@
-# ECC benchmarks for MCU
+# Elliptic Curve Cryptography (ECC) benchmarks for MCU
 
 ## Motivations
 
@@ -19,6 +19,11 @@ This benchmarks suite measures the performance of various implementations of ECC
 | [ed25519](https://neuromancer.sk/std/other/Ed25519)    | 32 bytes | 64 bytes | 64 bytes |
 
 See https://neuromancer.sk/std/
+
+Security equivalence can be found in Kerry Maletsky, RSA vs. ECC Comparison for Embedded Systems, Microchip, https://ww1.microchip.com/downloads/en/DeviceDoc/00003442A.pdf
+
+![comparison](images/comparison.png)
+![performance](images/performance.png)
 
 ## Boards
 
@@ -98,3 +103,11 @@ gmake BOARD=esp32-wroom-32 -j 16
 ### On MBed
 
 TBD
+
+
+## Annexes
+
+* Kerry Maletsky, RSA vs. ECC Comparison for Embedded Systems, Microchip, https://ww1.microchip.com/downloads/en/DeviceDoc/00003442A.pdf
+
+
+
