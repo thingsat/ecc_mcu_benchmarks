@@ -12,15 +12,16 @@ This benchmarks suite measures the performance of various implementations of ECC
 
 ## Usual ECC algorithms
 
-| Name | Private Key Size | Public Key Size | Signature Size |
-|------|------------------|-----------------|----------------|
-| [secp112r1](https://neuromancer.sk/std/secg/secp112r1) | 14 bytes | 28 bytes | 28 bytes |
-| [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | 20 bytes | 40 bytes | 40 bytes |
-| [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | 24 bytes | 48 bytes | 48 bytes |
-| [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | 28 bytes | 56 bytes | 56 bytes |
-| [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | 32 bytes | 64 bytes | 64 bytes |
-| [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | 32 bytes | 64 bytes | 64 bytes |
-| [ed25519](https://neuromancer.sk/std/other/Ed25519)    | 32 bytes | 64 bytes | 64 bytes |
+| Name | Private Key Size | Public Key Size | Signature Size | [Security Level](https://en.wikipedia.org/wiki/Security_level) |
+|------|------------------|-----------------|----------------|----------------|
+| [secp112r1](https://neuromancer.sk/std/secg/secp112r1) | 14 bytes | 28 bytes | 28 bytes | |
+| [secp128r1](https://neuromancer.sk/std/secg/secp128r1) | 16 bytes | 32 bytes | 32 bytes | |
+| [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | 20 bytes | 40 bytes | 40 bytes | 80 bits|
+| [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | 24 bytes | 48 bytes | 48 bytes | |
+| [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | 28 bytes | 56 bytes | 56 bytes | 112 bits |
+| [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | 32 bytes | 64 bytes | 64 bytes | 128 bits |
+| [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | 32 bytes | 64 bytes | 64 bytes | 128 bits |
+| [ed25519](https://neuromancer.sk/std/other/Ed25519)    | 32 bytes | 64 bytes | 64 bytes | 128 bits |
 
 See https://neuromancer.sk/std/
 
@@ -52,6 +53,8 @@ Implementations are available as packages in [RIOT/pkg directory](https://github
 * qdsa https://www.cs.ru.nl/~jrenes  
 * wolfcrypt https://github.com/wolfSSL/wolfssl
 
+Hash functions in RIOT : https://api.riot-os.org/group__sys__hashes__unkeyed.html
+
 ### MBed
 
 
@@ -74,10 +77,6 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | Nucleo F103RB |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 1284219 | 2935649 |
 | Nucleo F103RB |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 1284905 | 2935990 |
 | Nucleo F103RB |  ED25519   | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 1289673 | 2938374 |
-| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 16 | ?? | ?? |
-| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 32 | ?? | ?? |
-| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 128 | ?? | ?? |
-| Nucleo F466RE |  ED25519   | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 1024 | ?? | ?? |
 | Nucleo F466RE |  secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 16 | ?? | ?? |
 | Nucleo F466RE |  secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 32 | ?? | ?? |
 | Nucleo F466RE |  secp160r1 | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 128 | ?? | ?? |
@@ -128,6 +127,8 @@ TBD
 ## Annexes
 
 * Kerry Maletsky, RSA vs. ECC Comparison for Embedded Systems, Microchip, https://ww1.microchip.com/downloads/en/DeviceDoc/00003442A.pdf
-
+* G Neven, N. P. Smart and B.Warinschi, Hash function requirements for Schnorr signatures, Jour-
+nal of Mathematical Cryptology, vol .3, issue 1, pp. 69-87, 2009.
+* Thommas Pornin, Truncated EdDSA/ECDSA Signatures, https://eprint.iacr.org/2022/938.pdf
 
 
