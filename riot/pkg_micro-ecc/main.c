@@ -117,7 +117,7 @@ int main(void)
 
 	bench_ecc();
 
-
+    /*
     printf("micro-ecc compiled!\n");
 
     const struct uECC_Curve_t *curve = uECC_secp256r1();
@@ -144,7 +144,7 @@ int main(void)
                     errorc++;
                 }
 
-                /* copy some bogus data into the hash */
+                // copy some bogus data into the hash
                 memcpy(l_hash, l_public1, 32);
 
                 uECC_SHA256_HashContext ctx;
@@ -179,4 +179,5 @@ int main(void)
         puts("SUCCESS");
         return 0;
     }
+    */
 }

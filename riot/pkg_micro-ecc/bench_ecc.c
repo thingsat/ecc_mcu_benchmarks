@@ -10,7 +10,8 @@ int bench_ecc(void) {
     int i, c;
     uint8_t private[32] = {0};
     uint8_t public[64] = {0};
-    uint8_t hash[32] = {0};
+    uint8_t hash[64] = {0};
+    uint8_t size_of_hash[5] = {40,48,56,64,64};
     uint8_t sig[64] = {0};
 
     const struct uECC_Curve_t * curves[5];
@@ -32,19 +33,18 @@ int bench_ecc(void) {
 #endif
 
     uint32_t start, stop;
-
-    printf("Testing 256 signatures\n");
+    uint32_t X = 256;
+    uint32_t sign_sum,verify_sum;
+    printf("Testing %lu signatures\n",X);
     for (c = 0; c < num_curves; ++c) {
-        for (i = 0; i < 256; ++i) {
-            printf(".");
-            fflush(stdout);
-
-        	printf("Curve %u : Private key size: %d, Public key size: %d\n",
+        sign_sum = 0;
+        verify_sum = 0;
+        printf("Curve %u : Private key size: %d, Public key size: %d\n",
         			c,
         			uECC_curve_private_key_size(curves[c]),
 					uECC_curve_public_key_size(curves[c])
         	);
-
+        for (i = 0; i < 256; ++i) {
 
         	start = xtimer_now_usec();
             if (!uECC_make_key(public, private, curves[c])) {
@@ -53,28 +53,30 @@ int bench_ecc(void) {
             }
             stop = xtimer_now_usec();
 
-        	printf("Curve %u : Make Key: %lu usec\n", c, stop-start);
-
-            memcpy(hash, public, sizeof(hash));
+            //printf("Curve %u : Make Key: %lu usec\n", c, stop-start);
+            memcpy(hash, public, size_of_hash[c]);
 
         	start = xtimer_now_usec();
-            if (!uECC_sign(private, hash, sizeof(hash), sig, curves[c])) {
+            if (!uECC_sign(private, hash, size_of_hash[c], sig, curves[c])) {
                 printf("uECC_sign() failed\n");
                 return 1;
             }
             stop = xtimer_now_usec();
-        	printf("Curve %u : Sign: %lu usec\n", c, stop-start);
-
+            //printf("Curve %u : Sign: %lu usec\n", c, stop-start);
+            sign_sum += stop-start;
         	start = xtimer_now_usec();
-            if (!uECC_verify(public, hash, sizeof(hash), sig, curves[c])) {
+            if (!uECC_verify(public, hash, size_of_hash[c], sig, curves[c])) {
                 printf("uECC_verify() failed\n");
                 return 1;
             }
             stop = xtimer_now_usec();
-        	printf("Curve %u : Verify: %lu usec\n", c, stop-start);
-
+            //printf("Curve %u : Verify: %lu usec\n", c, stop-start);
+            verify_sum += stop-start;
 
         }
+        printf("\n");
+        printf("Curve %u : Sign: %lu usec\n", c, sign_sum/X);
+        printf("Curve %u : Verify: %lu usec\n", c, verify_sum/X);
         printf("\n");
     }
 
