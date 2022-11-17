@@ -30,6 +30,8 @@ Security equivalence can be found in Kerry Maletsky, RSA vs. ECC Comparison for 
 ![comparison](images/comparison.png)
 ![performance](images/performance.png)
 
+[Common hash functions](https://en.wikipedia.org/wiki/SHA-1#Comparison_of_SHA_functions)
+
 ## Boards
 
 | Board | MCU | Frequency and DMIPS | RAM | FlashRAM | Support |
