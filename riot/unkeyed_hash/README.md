@@ -61,6 +61,14 @@ Board|Algo|data_size (bytes)|time(micro-seconds)|
 |nucleo-l073rz|sha224|512|3160.4|
 |nucleo-l073rz|sha224|1024|5889.6|
 |
+|nucleo-l053r8|sha224|16|409.9|
+|nucleo-l053r8|sha224|32|409.9|
+|nucleo-l053r8|sha224|64|772.2|
+|nucleo-l053r8|sha224|128|1113.3|
+|nucleo-l053r8|sha224|256|1795.5|
+|nucleo-l053r8|sha224|512|3159.9|
+|nucleo-l053r8|sha224|1024|5888.9|
+|
 |nucleo-f446re|sha256|16|42.2|
 |nucleo-f446re|sha256|32|42.2|
 |nucleo-f446re|sha256|64|77.1|
@@ -84,6 +92,14 @@ Board|Algo|data_size (bytes)|time(micro-seconds)|
 |nucleo-l073rz|sha256|256|1796.2|
 |nucleo-l073rz|sha256|512|3160.8|
 |nucleo-l073rz|sha256|1024|5889.9|
+|
+|nucleo-l053r8|sha256|16|410.3|
+|nucleo-l053r8|sha256|32|410.2|
+|nucleo-l053r8|sha256|64|772.5|
+|nucleo-l053r8|sha256|128|1113.6|
+|nucleo-l053r8|sha256|256|1795.9|
+|nucleo-l053r8|sha256|512|3160.3|
+|nucleo-l053r8|sha256|1024|5889.2|
 |
 |nucleo-f446re|sha3_256|16|1930.2|
 |nucleo-f446re|sha3_256|32|1931.0|
@@ -109,6 +125,14 @@ Board|Algo|data_size (bytes)|time(micro-seconds)|
 |nucleo-l073rz|sha3_256|512|73448.2|
 |nucleo-l073rz|sha3_256|1024|146827.4|
 |
+|nucleo-l053r8|sha3_256|16|17655.7|
+|nucleo-l053r8|sha3_256|32|17663.2|
+|nucleo-l053r8|sha3_256|64|17678.2|
+|nucleo-l053r8|sha3_256|128|17708.3|
+|nucleo-l053r8|sha3_256|256|35347.7|
+|nucleo-l053r8|sha3_256|512|70626.6|
+|nucleo-l053r8|sha3_256|1024|141184.4|
+|
 |nucleo-f446re|sha3_384|16|1930.9|
 |nucleo-f446re|sha3_384|32|1931.6|
 |nucleo-f446re|sha3_384|64|1933.2|
@@ -132,6 +156,14 @@ Board|Algo|data_size (bytes)|time(micro-seconds)|
 |nucleo-l073rz|sha3_384|256|55048.3|
 |nucleo-l073rz|sha3_384|512|91737.9|
 |nucleo-l073rz|sha3_384|1024|183402.0|
+|
+|nucleo-l053r8|sha3_384|16|17660.7|
+|nucleo-l053r8|sha3_384|32|17668.2|
+|nucleo-l053r8|sha3_384|64|17683.3|
+|nucleo-l053r8|sha3_384|128|35292.7|
+|nucleo-l053r8|sha3_384|256|52932.1|
+|nucleo-l053r8|sha3_384|512|88211.0|
+|nucleo-l053r8|sha3_384|1024|176348.2|
 |
 |nucleo-f446re|sha3_512|16|1931.4|
 |nucleo-f446re|sha3_512|32|1932.2|
@@ -157,6 +189,14 @@ Board|Algo|data_size (bytes)|time(micro-seconds)|
 |nucleo-l073rz|sha3_512|512|146597.3|
 |nucleo-l073rz|sha3_512|1024|274830.9|
 |
+|nucleo-l053r8|sha3_512|16|17665.7|
+|nucleo-l053r8|sha3_512|32|17673.3|
+|nucleo-l053r8|sha3_512|64|17688.3|
+|nucleo-l053r8|sha3_512|128|35297.7|
+|nucleo-l053r8|sha3_512|256|70516.5|
+|nucleo-l053r8|sha3_512|512|140954.3|
+|nucleo-l053r8|sha3_512|1024|264250.3|
+|
 |nucleo-f446re|sha1|16|46.9|
 |nucleo-f446re|sha1|32|47.2|
 |nucleo-f446re|sha1|64|92.9|
@@ -181,6 +221,14 @@ Board|Algo|data_size (bytes)|time(micro-seconds)|
 |nucleo-l073rz|sha1|512|3580.5|
 |nucleo-l073rz|sha1|1024|6786.7|
 |
+|nucleo-l053r8|sha1|16|382.5|
+|nucleo-l053r8|sha1|32|392.4|
+|nucleo-l053r8|sha1|64|771.3|
+|nucleo-l053r8|sha1|128|1170.2|
+|nucleo-l053r8|sha1|256|1968.0|
+|nucleo-l053r8|sha1|512|3563.5|
+|nucleo-l053r8|sha1|1024|6754.7|
+|
 |nucleo-f446re|md5|16|26.9|
 |nucleo-f446re|md5|32|27.3|
 |nucleo-f446re|md5|64|52.8|
@@ -204,6 +252,14 @@ Board|Algo|data_size (bytes)|time(micro-seconds)|
 |nucleo-l073rz|md5|256|1181.9|
 |nucleo-l073rz|md5|512|2140.0|
 |nucleo-l073rz|md5|1024|4056.4|
+|
+|nucleo-l053r8|md5|16|230.7|
+|nucleo-l053r8|md5|32|237.7|
+|nucleo-l053r8|md5|64|463.2|
+|nucleo-l053r8|md5|128|702.7|
+|nucleo-l053r8|md5|256|1181.8|
+|nucleo-l053r8|md5|512|2140.0|
+|nucleo-l053r8|md5|1024|4056.3|
 
 
 ## Running the benchmarks suite
