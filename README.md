@@ -81,12 +81,12 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 298720 | 692124 |
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 300692 | 693110 |
-|
+|||||||
 | ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 320036 | 741542 |
 | ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 320038 | 741543|
 | ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 320303  | 741675 |
 | ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 322147 |  742596|
-|
+|||||||
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 1284209 | 2935644 |
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 1284219 | 2935649 |
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 1284905 | 2935990 |
@@ -99,13 +99,13 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | Nucleo F446RE | [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 56 | 24773 | 26335 |
 | Nucleo F446RE | [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 47170 | 52012 |
 | Nucleo F446RE | [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 39790 | 40286 |
-|
+|||||||
 | ThingSat | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 20285 | 21362 |
 | ThingSat| [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 18979 | 20320 |
 | ThingSat | [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 56 | 26081 | 27787 |
 | ThingSat | [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 49310 |54364  |
 | ThingSat | [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 41691  | 42105  |
-|
+|||||||
 | Nucleo F103RB | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 67316 | 72010 |
 | Nucleo F103RB | [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 63340 | 69155 |
 | Nucleo F103RB | [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 56 | 85427 | 93501 |
