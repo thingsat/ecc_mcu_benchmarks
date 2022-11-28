@@ -160,5 +160,10 @@ TBD
 * G Neven, N. P. Smart and B.Warinschi, Hash function requirements for Schnorr signatures, Jour-
 nal of Mathematical Cryptology, vol .3, issue 1, pp. 69-87, 2009.
 * Thommas Pornin, Truncated EdDSA/ECDSA Signatures, https://eprint.iacr.org/2022/938.pdf
+* [Embench™: An Evolving Benchmark Suite for Embedded IoT Computers from an Academic-Industrial Cooperative: Towards the Long Overdue and Deserved Demise of Dhrystone](https://www.sigarch.org/embench-recruiting-for-the-long-overdue-and-deserved-demise-of-dhrystone-as-a-benchmark-for-embedded-computing/) : [source code](https://github.com/embench/embench-iot/)
+
+
+
+
 
 
