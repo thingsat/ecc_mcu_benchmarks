@@ -74,6 +74,7 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 ## Results
 
 * Signing and verifying time in micro-seconds per call
+* [Curve25519 makes use of a special x-coordinate only form to achieve faster multiplication. Ed25519 uses Edwards curve for similar speedups, but includes a sign bit](https://crypto.stackexchange.com/questions/27866/why-curve25519-for-encryption-but-ed25519-for-signatures#:~:text=Curve25519%20makes%20use%20of%20a,one%20of%20encryption%20or%20signing.)
 
 | Board | Algo | Implementation | Message size | Signing | Verifying |
 |-------|------|----------------|--------------|---------|-----------|
@@ -81,6 +82,16 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 298720 | 692124 |
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 300692 | 693110 |
+|||||||
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 32108 | 53686 |
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 32124 | 53701 |
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 32219 | 53796 |
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 33106 | 54683 |
+|||||||
+| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 67123 | 111692 |
+| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 67153 | 111723 |
+| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 67339 | 111909 |
+| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 69069 | 113639 |
 |||||||
 | ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 320036 | 741542 |
 | ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 320038 | 741543|
@@ -130,6 +141,7 @@ gmake BOARD=nucleo-l152re -j 16 flash term
 gmake BOARD=nucleo-l476rg -j 16 flash term
 gmake BOARD=lora-e5-dev -j 16 flash term
 gmake BOARD=esp32-wroom-32 -j 16 flash term
+gmake BOARD=stm32f746g-disco -j 16 flash term
 ```
 
 ```bash
@@ -163,7 +175,10 @@ nal of Mathematical Cryptology, vol .3, issue 1, pp. 69-87, 2009.
 * [Embench™: An Evolving Benchmark Suite for Embedded IoT Computers from an Academic-Industrial Cooperative: Towards the Long Overdue and Deserved Demise of Dhrystone](https://www.sigarch.org/embench-recruiting-for-the-long-overdue-and-deserved-demise-of-dhrystone-as-a-benchmark-for-embedded-computing/) : [source code](https://github.com/embench/embench-iot/)
 
 ## TODO
-* [ ] Add in benchmark [Lib Hydrogen](https://github.com/jedisct1/libhydrogen/blob/master/hydrogen.h)
+* [X] Add in benchmark [Lib Hydrogen](https://github.com/jedisct1/libhydrogen/blob/master/hydrogen.h)
+* [ ] Investigate why f4 faster than f7 ! 
+[f7-is-slower-than-my-f4](https://community.st.com/s/question/0D53W00000BrUpUSAV/f7-is-slower-than-my-f4-f7-running-on-double-the-frequency)
+[perf](https://electronics.stackexchange.com/questions/508828/which-microcontroller-for-a-program-with-many-floating-point-operations?noredirect=1#comment1303043_508828)
 
 
 

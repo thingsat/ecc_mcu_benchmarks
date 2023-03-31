@@ -26,8 +26,9 @@
 #include "embUnit.h"
 #include "hydrogen.h"
 
+#define MSG_SIZE	1024
 static char context[] = "examples";
-static char message[] = "0123456789abcdef";
+static uint8_t message[MSG_SIZE] = "0123456789abcdef";
 
 /* This performs setup, but should never fail */
 static void test_hydro_init(void)
@@ -36,7 +37,7 @@ static void test_hydro_init(void)
 }
 
 /* Test public-key signatures */
-static void test_hydro_signverify(void)
+static void test_hydro_signverify(uint8_t* message, size_t message_len)
 {
     printf("%s\n",__FUNCTION__);
  
@@ -51,24 +52,37 @@ static void test_hydro_signverify(void)
 	start = xtimer_now_usec();
 	for (uint32_t i = 0; i < BENCH_SIZE; ++i) {
 	    /* Sign */
-        hydro_sign_create(signature, message, sizeof message, context, key_pair.sk);
+        hydro_sign_create(signature, message, message_len, context, key_pair.sk);
 	}
     stop = xtimer_now_usec();
-	printf("Sign: %u calls for %u bytes in %lu usec (%f usec per call)\n", BENCH_SIZE, sizeof(message), stop-start, (stop-start)*1.0/BENCH_SIZE);
+	printf("Sign: %u calls for %u bytes in %lu usec (%f usec per call)\n", BENCH_SIZE, message_len, stop-start, (stop-start)*1.0/BENCH_SIZE);
 
     int res;
 	start = xtimer_now_usec();
 	for (uint32_t i = 0; i < BENCH_SIZE; ++i) {
 	    /* Verifying... */
-        res = hydro_sign_verify(signature, message, sizeof message, context, key_pair.pk);
+        res = hydro_sign_verify(signature, message, message_len, context, key_pair.pk);
 	}
     stop = xtimer_now_usec();
-    TEST_ASSERT(res);
-    printf("Verify: %u calls for %u bytes in %lu usec (%f usec per call)\n", BENCH_SIZE, sizeof(message), stop-start, (stop-start)*1.0/BENCH_SIZE);
+    TEST_ASSERT(res == 0);
+    printf("Verify: %u calls for %u bytes in %lu usec (%f usec per call)\n", BENCH_SIZE, message_len, stop-start, (stop-start)*1.0/BENCH_SIZE);
 
     TEST_ASSERT(res == 0);
 }
 
+//use static variable message
+static void test_hydro_signverify_bench(void)
+{
+	printf("%s\n",__FUNCTION__);
+	size_t i = 0;
+	for(i = 0; i < MSG_SIZE; i++){
+		message[i] = (uint8_t)(i & 0xFF);
+	}
+    test_hydro_signverify(message, 16);
+    test_hydro_signverify(message, 32);
+    test_hydro_signverify(message, 128);
+    test_hydro_signverify(message, 1024);
+}
 /* Test secret-key encryption */
 static void test_hydro_secretbox_encryptdecrypt(void)
 {
@@ -99,7 +113,8 @@ Test *tests_libhydrogen(void)
 
     EMB_UNIT_TESTFIXTURES(fixtures) {
         new_TestFixture(test_hydro_init),
-        new_TestFixture(test_hydro_signverify),
+        //new_TestFixture(test_hydro_signverify),
+        new_TestFixture(test_hydro_signverify_bench),
         new_TestFixture(test_hydro_secretbox_encryptdecrypt),
     };
     EMB_UNIT_TESTCALLER(libhydrogen_tests, NULL, NULL, fixtures);
