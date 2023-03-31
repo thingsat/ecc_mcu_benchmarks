@@ -43,7 +43,7 @@ Security equivalence can be found in Kerry Maletsky, RSA vs. ECC Comparison for 
 | Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
 | Nucleo L073RZ | [STM32L073RZ](https://www.st.com/en/microcontrollers-microprocessors/stm32l073rz.html) (Cortex M0+) |  32 MHz,  30.4 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
 | Nucleo L053R8 | [STM32L053R8](https://www.st.com/en/microcontrollers-microprocessors/stm32l053r8.html) (Cortex M0+) |  32 MHz,  30.4 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
-| STM32 F7 Discovery | [STM32F746NG](https://www.st.com/en/microcontrollers-microprocessors/stm32f746ng.html) (Cortex M7) |  216 MHz,  462 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
+| STM32F746NG Discovery | [STM32F746NG](https://www.st.com/en/microcontrollers-microprocessors/stm32f746ng.html) (Cortex M7) |  216 MHz,  462 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
 |ESP32-WROOM-32U | [ESP32 WROOM 32U](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf) (dual-core Xtensa® 32-bit LX6 MCU) | 40 MHz, 100 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
 
 * DMIPS for Dhrystone 2.1 on STM32 MCU
@@ -83,25 +83,29 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
 | Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 300692 | 693110 |
 |||||||
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 32108 | 53686 |
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 32124 | 53701 |
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 32219 | 53796 |
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 33106 | 54683 |
-|||||||
-| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 67123 | 111692 |
-| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 67153 | 111723 |
-| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 67339 | 111909 |
-| STM32 F7 Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 69069 | 113639 |
-|||||||
-| ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 320036 | 741542 |
-| ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 320038 | 741543|
-| ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 320303  | 741675 |
-| ThingSat | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 322147 |  742596|
+| ThingSat STM32F405RG | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 320036 | 741542 |
+| ThingSat STM32F405RG | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 320038 | 741543|
+| ThingSat STM32F405RG | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 320303  | 741675 |
+| ThingSat STM32F405RG | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 322147 |  742596|
 |||||||
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 1284209 | 2935644 |
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 1284219 | 2935649 |
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 1284905 | 2935990 |
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 1289673 | 2938374 |
+
+| Board | Algo | Implementation | Message size | Signing | Verifying |
+|-------|------|----------------|--------------|---------|-----------|
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 32108 | 53686 |
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 32124 | 53701 |
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 32219 | 53796 |
+| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 33106 | 54683 |
+|||||||
+| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 67123 | 111692 |
+| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 67153 | 111723 |
+| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 67339 | 111909 |
+| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 69069 | 113639 |
+
+
 
 | Board | Algo | Implementation | Public Key Size	 | Signing | Verifying |
 |-------|------|----------------|---------------------|--------|-----------|
@@ -111,11 +115,11 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | Nucleo F446RE | [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 47170 | 52012 |
 | Nucleo F446RE | [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 39790 | 40286 |
 |||||||
-| ThingSat | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 20285 | 21362 |
-| ThingSat| [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 18979 | 20320 |
-| ThingSat | [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 56 | 26081 | 27787 |
-| ThingSat | [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 49310 |54364  |
-| ThingSat | [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 41691  | 42105  |
+| ThingSat STM32F405RG | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 20285 | 21362 |
+| ThingSat STM32F405RG| [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 18979 | 20320 |
+| ThingSat STM32F405RG | [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 56 | 26081 | 27787 |
+| ThingSat STM32F405RG | [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 49310 |54364  |
+| ThingSat STM32F405RG | [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 41691  | 42105  |
 |||||||
 | Nucleo F103RB | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 67316 | 72010 |
 | Nucleo F103RB | [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 63340 | 69155 |
@@ -139,6 +143,7 @@ gmake BOARD=nucleo-f103rb -j 16 flash term
 gmake BOARD=nucleo-l073rz -j 16 flash term
 gmake BOARD=nucleo-l152re -j 16 flash term
 gmake BOARD=nucleo-l476rg -j 16 flash term
+gmake BOARD=stm32f746g-disco -j 16 flash term
 gmake BOARD=lora-e5-dev -j 16 flash term
 gmake BOARD=esp32-wroom-32 -j 16 flash term
 gmake BOARD=stm32f746g-disco -j 16 flash term
@@ -154,6 +159,22 @@ gmake BOARD=nucleo-f103rb -j 16 flash term
 gmake BOARD=nucleo-l073rz -j 16 flash term
 gmake BOARD=nucleo-l152re -j 16 flash term
 gmake BOARD=nucleo-l476rg -j 16 flash term
+gmake BOARD=stm32f746g-disco -j 16 flash term
+gmake BOARD=lora-e5-dev -j 16 flash term
+gmake BOARD=esp32-wroom-32 -j 16 flash term
+```
+
+```bash
+cd riot/pkg_libhydrogen
+gmake BOARD=thingsat-f4 -j 16 flash term
+gmake BOARD=nucleo-f446re -j 16 flash term
+gmake BOARD=nucleo-f401re -j 16 flash term
+gmake BOARD=nucleo-f411re -j 16 flash term
+gmake BOARD=nucleo-f103rb -j 16 flash term
+gmake BOARD=nucleo-l073rz -j 16 flash term
+gmake BOARD=nucleo-l152re -j 16 flash term
+gmake BOARD=nucleo-l476rg -j 16 flash term
+gmake BOARD=stm32f746g-disco -j 16 flash term
 gmake BOARD=lora-e5-dev -j 16 flash term
 gmake BOARD=esp32-wroom-32 -j 16 flash term
 ```
