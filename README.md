@@ -188,7 +188,7 @@ TBD
 TBD
 
 ## Annexes
-
+* [NIST Special Publication 800-57 Part 1 Revision 4 Recommendation for Key Management Part 1: General](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r4.pdf)
 * Kerry Maletsky, RSA vs. ECC Comparison for Embedded Systems, Microchip, https://ww1.microchip.com/downloads/en/DeviceDoc/00003442A.pdf
 * G Neven, N. P. Smart and B.Warinschi, Hash function requirements for Schnorr signatures, Jour-
 nal of Mathematical Cryptology, vol .3, issue 1, pp. 69-87, 2009.
