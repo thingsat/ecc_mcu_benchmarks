@@ -10,6 +10,9 @@ Status : Draft
 
 This benchmarks suite measures the performance of various implementations of ECC algorithms for signing and verifying on various MCU boards. 
 
+> For FlashRAM and RAM footprints, have a glance on the [SUIT paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8725488) in tables 6 and 7.
+
+
 ## Usual ECC algorithms
 
 | Name | Private Key Size | Public Key Size | Signature Size | [Security Level](https://en.wikipedia.org/wiki/Security_level) |
@@ -37,14 +40,18 @@ Security equivalence can be found in Kerry Maletsky, RSA vs. ECC Comparison for 
 | Board | MCU | Frequency and DMIPS | RAM | FlashRAM | Support |
 |-------|-----|-----------------|-----|----------|---------|
 | [Thingsat](https://gricad-gitlab.univ-grenoble-alpes.fr/thingsat/public/-/blob/master/cubesat_mission/README.md#board) | [STM32F405RG](https://www.st.com/en/microcontrollers-microprocessors/stm32f405rg.html) (Cortex M4) | 180 MHz, 210 DMIPS | 192 Kbytes | 1024  Kbytes | RIOT, FreeRTOS, STM32CubeMX |
-| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS |  |   | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX  |
-| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS |  |  | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
-| Nucleo F446RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS |  |   | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX  |
-| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
-| Nucleo L073RZ | [STM32L073RZ](https://www.st.com/en/microcontrollers-microprocessors/stm32l073rz.html) (Cortex M0+) |  32 MHz,  30.4 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
-| Nucleo L053R8 | [STM32L053R8](https://www.st.com/en/microcontrollers-microprocessors/stm32l053r8.html) (Cortex M0+) |  32 MHz,  30.4 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
-| STM32F746NG Discovery | [STM32F746NG](https://www.st.com/en/microcontrollers-microprocessors/stm32f746ng.html) (Cortex M7) |  216 MHz,  462 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
+| Nucleo F466RE | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS |  |   | [Arduino](https://github.com/stm32duino/Arduino_Core_STM32), RIOT, MBed, FreeRTOS, STM32CubeMX  |
+| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS |  |  | [Arduino](https://github.com/stm32duino/Arduino_Core_STM32), RIOT, MBed, FreeRTOS, STM32CubeMX |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | [STM32F446RE](https://www.st.com/resource/en/datasheet/stm32f446re.pdf) (Cortex M4) | 180 MHz, 225 DMIPS |  |   | [Arduino](https://github.com/stm32duino/Arduino_Core_STM32), RIOT, MBed, FreeRTOS, STM32CubeMX  |
+| Nucleo F103RB | [STM32F103RB](https://www.st.com/en/microcontrollers-microprocessors/stm32f103rb.html) (Cortex M3) | 72 MHz, 90 DMIPS | | | [Arduino](https://github.com/stm32duino/Arduino_Core_STM32), RIOT, MBed, FreeRTOS, STM32CubeMX |
+| Nucleo L073RZ | [STM32L073RZ](https://www.st.com/en/microcontrollers-microprocessors/stm32l073rz.html) (Cortex M0+) |  32 MHz,  30.4 DMIPS | | | [Arduino](https://github.com/stm32duino/Arduino_Core_STM32), RIOT, MBed, FreeRTOS, STM32CubeMX |
+| Nucleo L053R8 | [STM32L053R8](https://www.st.com/en/microcontrollers-microprocessors/stm32l053r8.html) (Cortex M0+) |  32 MHz,  30.4 DMIPS | | | [Arduino](https://github.com/stm32duino/Arduino_Core_STM32), RIOT, MBed, FreeRTOS, STM32CubeMX |
+| [STM32F746NG Discovery](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | [STM32F746NG](https://www.st.com/en/microcontrollers-microprocessors/stm32f746ng.html) (Cortex M7) |  160 MHz,  240 DMIPS | | | [Arduino](https://github.com/stm32duino/Arduino_Core_STM32), RIOT, MBed, FreeRTOS, STM32CubeMX |
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | [STM32U585AI](https://www.st.com/en/microcontrollers-microprocessors/stm32u585ai.html) (Cortex M33) |  216 MHz,  462 DMIPS | 786 Kbytes of SRAM | 2 Mbytes of Flash memory, 512-Mbit Quad-SPI Flash memory, 64-Mbit Octo-SPI PSRAM, 256-Kbit I2C EEPROM | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
+| [IMST iM880b](https://wireless-solutions.de/products/lora-solutions-by-imst/radio-modules/im880b-l/) | [STM32L151CB-A](https://www.st.com/en/microcontrollers-microprocessors/stm32l151cb-a.html) (Cortex M3) |  32 MHz, 1.25 DMIPS/MHz | 32 Kbytes of RAM| 256 Kbytes of Flash memory with ECC, 8 Kbytes of true EEPROM with ECC | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b) |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | [STM32L151CC](https://www.st.com/en/microcontrollers-microprocessors/stm32l151cc.html) (Cortex M3) |  32 MHz, 1.25 DMIPS/MHz | 32 Kbytes of RAM| 256 Kbytes of Flash memory with ECC, 8 Kbytes of true EEPROM with ECC | [RIOT](https://github.com/CampusIoT/RIOT-wyres/tree/main/boards/wyres-base) |
 |ESP32-WROOM-32U | [ESP32 WROOM 32U](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf) (dual-core Xtensa® 32-bit LX6 MCU) | 40 MHz, 100 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
+
 
 * DMIPS for Dhrystone 2.1 on STM32 MCU
 
@@ -76,12 +83,15 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 * Signing and verifying time in micro-seconds per call
 * [Curve25519 makes use of a special x-coordinate only form to achieve faster multiplication. Ed25519 uses Edwards curve for similar speedups, but includes a sign bit](https://crypto.stackexchange.com/questions/27866/why-curve25519-for-encryption-but-ed25519-for-signatures#:~:text=Curve25519%20makes%20use%20of%20a,one%20of%20encryption%20or%20signing.)
 
+
+### `[c25519](https://api.riot-os.org/group__pkg__c25519.html)`
+
 | Board | Algo | Implementation | Message size | Signing | Verifying |
 |-------|------|----------------|--------------|---------|-----------|
-| Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 298718 | 692123 |
-| Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 298720 | 692124 |
-| Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
-| Nucleo F446RE | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 300692 | 693110 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 298718 | 692123 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 298720 | 692124 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 298968 | 692248 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 300692 | 693110 |
 |||||||
 | ThingSat STM32F405RG | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 320036 | 741542 |
 | ThingSat STM32F405RG | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 320038 | 741543|
@@ -92,28 +102,42 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 1284219 | 2935649 |
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 1284905 | 2935990 |
 | Nucleo F103RB | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 1289673 | 2938374 |
+|||||||
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 376222 | 878826 |
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 376224 | 878827 |
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 376455 | 878942 |
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 378066 | 879747 |
+
+
+### `[libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html)`
 
 | Board | Algo | Implementation | Message size | Signing | Verifying |
 |-------|------|----------------|--------------|---------|-----------|
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 32108 | 53686 |
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 32124 | 53701 |
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 32219 | 53796 |
-| Nucleo F446RE | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 33106 | 54683 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 32108 | 53686 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 32124 | 53701 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 32219 | 53796 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 33106 | 54683 |
 |||||||
-| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 67123 | 111692 |
-| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 67153 | 111723 |
-| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 67339 | 111909 |
-| STM32F746NG Discovery | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 69069 | 113639 |
+| [STM32F746NG Discovery](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 67123 | 111692 |
+| [STM32F746NG Discovery](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 67153 | 111723 |
+| [STM32F746NG Discovery](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 67339 | 111909 |
+| [STM32F746NG Discovery](https://www.st.com/en/evaluation-tools/32f746gdiscovery.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 69069 | 113639 |
+|||||||
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 31451 | 52602 |
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 31466 | 52617 |
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 31557 | 52708 |
+| [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 32402 | 53553 |
 
 
+### `[micro-ecc](https://doc.riot-os.org/group__pkg__micro__ecc.html)`
 
 | Board | Algo | Implementation | Public Key Size	 | Signing | Verifying |
 |-------|------|----------------|---------------------|--------|-----------|
-| Nucleo F446RE | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 19008 | 20003 |
-| Nucleo F446RE | [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 17795 | 19080 |
-| Nucleo F446RE | [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 56 | 24773 | 26335 |
-| Nucleo F446RE | [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 47170 | 52012 |
-| Nucleo F446RE | [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 39790 | 40286 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 19008 | 20003 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 17795 | 19080 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | [secp224r1](https://neuromancer.sk/std/secg/secp224r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 56 | 24773 | 26335 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | [secp256r1](https://neuromancer.sk/std/secg/secp256r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 47170 | 52012 |
+| [ST Nucleo F446RE](https://www.st.com/en/evaluation-tools/nucleo-f446re.html) | [secp256k1](https://neuromancer.sk/std/secg/secp256k1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 64 | 39790 | 40286 |
 |||||||
 | ThingSat STM32F405RG | [secp160r1](https://neuromancer.sk/std/secg/secp160r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 40 | 20285 | 21362 |
 | ThingSat STM32F405RG| [secp192r1](https://neuromancer.sk/std/secg/secp192r1) | [Micro ECC](https://doc.riot-os.org/group__pkg__micro__ecc.html) | 48 | 18979 | 20320 |
@@ -132,10 +156,15 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 
 ### On RIOT
 
+For `wyres-base` board
+```bash
+mkdir -p ~/github/campusiot
+git clone git@github.com:CampusIoT/RIOT-wyres.git ~/github/campusiot/RIOT-wyres
+```
 
 ```bash
 cd riot/pkg_c25519
-gmake BOARD=thingsat-f4 -j 16 flash term
+gmake BOARD=thingsat-up4 -j 16 flash term
 gmake BOARD=nucleo-f446re -j 16 flash term
 gmake BOARD=nucleo-f401re -j 16 flash term
 gmake BOARD=nucleo-f411re -j 16 flash term
@@ -147,11 +176,14 @@ gmake BOARD=stm32f746g-disco -j 16 flash term
 gmake BOARD=lora-e5-dev -j 16 flash term
 gmake BOARD=esp32-wroom-32 -j 16 flash term
 gmake BOARD=stm32f746g-disco -j 16 flash term
+gmake BOARD=wyres-base -j 16 flash term
+gmake BOARD=im880b -j 16 flash term
+gmake BOARD=b-u585i-iot02a -j 16 flash term
 ```
 
 ```bash
 cd riot/pkg_micro-ecc
-gmake BOARD=thingsat-f4 -j 16 flash term
+gmake BOARD=thingsat-up4 -j 16 flash term
 gmake BOARD=nucleo-f446re -j 16 flash term
 gmake BOARD=nucleo-f401re -j 16 flash term
 gmake BOARD=nucleo-f411re -j 16 flash term
@@ -162,11 +194,15 @@ gmake BOARD=nucleo-l476rg -j 16 flash term
 gmake BOARD=stm32f746g-disco -j 16 flash term
 gmake BOARD=lora-e5-dev -j 16 flash term
 gmake BOARD=esp32-wroom-32 -j 16 flash term
+gmake BOARD=stm32f746g-disco -j 16 flash term
+gmake BOARD=wyres-base -j 16 flash term
+gmake BOARD=im880b -j 16 flash term
+gmake BOARD=b-u585i-iot02a -j 16 flash term
 ```
 
 ```bash
 cd riot/pkg_libhydrogen
-gmake BOARD=thingsat-f4 -j 16 flash term
+gmake BOARD=thingsat-up4 -j 16 flash term
 gmake BOARD=nucleo-f446re -j 16 flash term
 gmake BOARD=nucleo-f401re -j 16 flash term
 gmake BOARD=nucleo-f411re -j 16 flash term
@@ -177,6 +213,10 @@ gmake BOARD=nucleo-l476rg -j 16 flash term
 gmake BOARD=stm32f746g-disco -j 16 flash term
 gmake BOARD=lora-e5-dev -j 16 flash term
 gmake BOARD=esp32-wroom-32 -j 16 flash term
+gmake BOARD=stm32f746g-disco -j 16 flash term
+gmake BOARD=wyres-base -j 16 flash term
+gmake BOARD=im880b -j 16 flash term
+gmake BOARD=b-u585i-iot02a -j 16 flash term
 ```
 
 ### On MBed
@@ -196,8 +236,9 @@ nal of Mathematical Cryptology, vol .3, issue 1, pp. 69-87, 2009.
 * [Embench™: An Evolving Benchmark Suite for Embedded IoT Computers from an Academic-Industrial Cooperative: Towards the Long Overdue and Deserved Demise of Dhrystone](https://www.sigarch.org/embench-recruiting-for-the-long-overdue-and-deserved-demise-of-dhrystone-as-a-benchmark-for-embedded-computing/) : [source code](https://github.com/embench/embench-iot/)
 
 ## TODO
-* [X] Add in benchmark [Lib Hydrogen](https://github.com/jedisct1/libhydrogen/blob/master/hydrogen.h)
-* [ ] Add in benchmark [liblithium](https://github.com/teslamotors/liblithium)
+* [X] Add [Lib Hydrogen](https://github.com/jedisct1/libhydrogen/blob/master/hydrogen.h) in benchmark
+* [ ] Add [liblithium](https://github.com/teslamotors/liblithium) in benchmark
+* [ ] Add [monocypher](https://api.riot-os.org/group__pkg__monocypher.html) in benchmark
 * [ ] Investigate why f4 faster than f7 ! 
 [f7-is-slower-than-my-f4](https://community.st.com/s/question/0D53W00000BrUpUSAV/f7-is-slower-than-my-f4-f7-running-on-double-the-frequency)
 [perf](https://electronics.stackexchange.com/questions/508828/which-microcontroller-for-a-program-with-many-floating-point-operations?noredirect=1#comment1303043_508828)
