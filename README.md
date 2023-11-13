@@ -84,7 +84,7 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 * [Curve25519 makes use of a special x-coordinate only form to achieve faster multiplication. Ed25519 uses Edwards curve for similar speedups, but includes a sign bit](https://crypto.stackexchange.com/questions/27866/why-curve25519-for-encryption-but-ed25519-for-signatures#:~:text=Curve25519%20makes%20use%20of%20a,one%20of%20encryption%20or%20signing.)
 
 
-### `[c25519](https://api.riot-os.org/group__pkg__c25519.html)`
+### [`c25519`](https://api.riot-os.org/group__pkg__c25519.html)
 
 | Board | Algo | Implementation | Message size | Signing | Verifying |
 |-------|------|----------------|--------------|---------|-----------|
@@ -107,9 +107,15 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 376224 | 878827 |
 | [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 376455 | 878942 |
 | [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 378066 | 879747 |
+|||||||
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 2322980 | 5446012 |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 2322997 | 5446020 |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 2323757 | 5446711 |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 2324425 | 5446730 |
 
 
-### `[libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html)`
+
+### [`libhydrogen`](https://api.riot-os.org/group__pkg__libhydrogen.html)
 
 | Board | Algo | Implementation | Message size | Signing | Verifying |
 |-------|------|----------------|--------------|---------|-----------|
@@ -127,9 +133,15 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 | [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 31466 | 52617 |
 | [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 31557 | 52708 |
 | [ST B-U585I-IOT02A](https://www.st.com/en/evaluation-tools/b-u585i-iot02a.html) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 32402 | 53553 |
+|||||||
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 16 | 222623 | 373435 |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 32 | 222722 | 373531 |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 128 | 223303 | 374135 |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | Curve25519  | [libhydrogen](https://api.riot-os.org/group__pkg__libhydrogen.html) | 1024 | 228785 | 379620 |
 
 
-### `[micro-ecc](https://doc.riot-os.org/group__pkg__micro__ecc.html)`
+
+### [`micro-ecc`](https://doc.riot-os.org/group__pkg__micro__ecc.html)
 
 | Board | Algo | Implementation | Public Key Size	 | Signing | Verifying |
 |-------|------|----------------|---------------------|--------|-----------|
