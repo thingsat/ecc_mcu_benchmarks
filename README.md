@@ -110,8 +110,7 @@ Highly-optimized ECC implementations for 8-bit AVR processors : WM-ECC, Nano-ECC
 |||||||
 | [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 16 | 2322980 | 5446012 |
 | [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 32 | 2322997 | 5446020 |
-| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 2323757 | 5446711 |
-| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 1024 | 2324425 | 5446730 |
+| [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | ED25519 | [c25519](https://api.riot-os.org/group__pkg__c25519.html) | 128 | 2324425 | 5446730 |
 
 
 
