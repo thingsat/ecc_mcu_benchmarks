@@ -52,6 +52,7 @@ Security equivalence can be found in Kerry Maletsky, RSA vs. ECC Comparison for 
 | [IMST iM880b](https://wireless-solutions.de/products/lora-solutions-by-imst/radio-modules/im880b-l/) | [STM32L151CB-A](https://www.st.com/en/microcontrollers-microprocessors/stm32l151cb-a.html) (Cortex M3) |  32 MHz, 1.25 DMIPS/MHz | 32 Kbytes of RAM| 256 Kbytes of Flash memory with ECC, 8 Kbytes of true EEPROM with ECC | [RIOT](https://github.com/RIOT-OS/RIOT/tree/master/boards/im880b) |
 | [Wyres Base](https://github.com/CampusIoT/RIOT-wyres) | [STM32L151CC](https://www.st.com/en/microcontrollers-microprocessors/stm32l151cc.html) (Cortex M3) |  32 MHz, 1.25 DMIPS/MHz | 32 Kbytes of RAM| 256 Kbytes of Flash memory with ECC, 8 Kbytes of true EEPROM with ECC | [RIOT](https://github.com/CampusIoT/RIOT-wyres/tree/main/boards/wyres-base) |
 |ESP32-WROOM-32U | [ESP32 WROOM 32U](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf) (dual-core Xtensa® 32-bit LX6 MCU) | 40 MHz, 100 DMIPS | | | Arduino, RIOT, MBed, FreeRTOS, STM32CubeMX |
+| STM32N6 | STM32N6 (Cortex-M55) | Neural-Art Accelerator™ | | | | 
 
 
 * DMIPS for Dhrystone 2.1 on STM32 MCU
